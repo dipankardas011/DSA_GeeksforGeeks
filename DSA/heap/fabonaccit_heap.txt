@@ -1,0 +1,68 @@
+Fibonacci Heap | Set 1 (Introduction)
+Difficulty Level : Medium
+Last Updated : 28 Oct, 2018
+Heaps are mainly used for implementing priority queue. We have discussed below heaps in previous posts.
+
+Binary Heap
+Binomial Heap
+
+In terms of Time Complexity, Fibonacci Heap beats both Binary and Binomial Heaps.
+
+Below are amortized time complexities of Fibonacci Heap.
+
+1) Find Min:      Θ(1)     [Same as both Binary and Binomial]
+2) Delete Min:    O(Log n) [Θ(Log n) in both Binary and Binomial]
+3) Insert:        Θ(1)     [Θ(Log n) in Binary and Θ(1) in Binomial]
+4) Decrease-Key:  Θ(1)     [Θ(Log n) in both Binary and Binomial]
+5) Merge:         Θ(1)     [Θ(m Log n) or Θ(m+n) in Binary and
+                            Θ(Log n) in Binomial]
+Like Binomial Heap, Fibonacci Heap is a collection of trees with min-heap or max-heap property. In Fibonacci Heap, trees can can have any shape even all trees can be single nodes (This is unlike Binomial Heap where every tree has to be Binomial Tree).
+
+
+
+Below is an example Fibonacci Heap taken from here.
+
+Fibonacci Heap maintains a pointer to minimum value (which is root of a tree). All tree roots are connected using circular doubly linked list, so all of them can be accessed using single ‘min’ pointer.
+
+The main idea is to execute operations in “lazy” way. For example merge operation simply links two heaps, insert operation simply adds a new tree with single node. The operation extract minimum is the most complicated operation. It does delayed work of consolidating trees. This makes delete also complicated as delete first decreases key to minus infinite, then calls extract minimum.
+
+Below are some interesting facts about Fibonacci Heap
+
+1. The reduced time complexity of Decrease-Key has importance in Dijkstra and Prim algorithms. With Binary Heap, time complexity of these algorithms is O(VLogV + ELogV). If Fibonacci Heap is used, then time complexity is improved to O(VLogV + E)
+2. Although Fibonacci Heap looks promising time complexity wise, it has been found slow in practice as hidden constants are high (Source Wiki).
+3. Fibonacci heap are mainly called so because Fibonacci numbers are used in the running time analysis. Also, every node in Fibonacci Heap has degree at most O(log n) and the size of a subtree rooted in a node of degree k is at least Fk+2, where Fk is the kth Fibonacci number.
+
+Extract_min(): We create a function for deleting the minimum node and setting the min pointer to the minimum value in the remaining heap. The following algorithm is followed:  
+
+1.Delete the min node.
+2.Set head to the next min node and add all the trees of the deleted node in the root list.
+3.Create an array of degree pointers of the size of the deleted node.
+4.Set degree pointer to the current node.
+5.Move to the next node.
+    . If degrees are different then set degree pointer to next node.
+    . If degrees are the same then join the Fibonacci trees by union operation.
+6.Repeat steps 4 and 5 until the heap is completed.
+
+Decrease_key(): To decrease the value of any element in the heap, we follow the following algorithm:
+
+Decrease the value of the node ‘x’ to the new chosen value.
+CASE 1) If min-heap property is not violated, 
+Update min pointer if necessary.
+CASE 2) If min-heap property is violated and parent of ‘x’ is unmarked, 
+Cut off the link between ‘x’ and its parent.
+Mark the parent of ‘x’.
+Add tree rooted at ‘x’ to the root list and update min pointer if necessary.
+CASE 3)If min-heap property is violated and parent of ‘x’ is marked, 
+Cut off the link between ‘x’ and its parent p[x].
+Add ‘x’ to the root list, updating min pointer if necessary.
+Cut off link between p[x] and p[p[x]].
+Add p[x] to the root list, updating min pointer if necessary.
+If p[p[x]] is unmarked, mark it.
+Else, cut off p[p[x]] and repeat steps 4.2 to 4.5, taking p[p[x]] as ‘x’.
+
+Deletion(): To delete any element in a Fibonacci heap, the following algorithm is followed:
+
+1.Decrease the value of the node to be deleted ‘x’ to a minimum by Decrease_key() function.
+2.By using min-heap property, heapify the heap containing ‘x’, bringing ‘x’ to the root list.
+3.Apply Extract_min() algorithm to the Fibonacci heap.
+

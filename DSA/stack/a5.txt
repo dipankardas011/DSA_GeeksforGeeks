@@ -1,0 +1,17 @@
+
+Create a customized data structure which evaluates functions in O(1)
+Difficulty Level : Easy
+ Last Updated : 12 Jul, 2017
+Create a customized data structure such that it has functions :-
+GetLastElement();
+RemoveLastElement();
+AddElement()
+GetMin()
+
+All the functions should be of O(1)
+
+Question Source : amazon interview questions
+
+
+
+QUESTION a4.c is almost same
