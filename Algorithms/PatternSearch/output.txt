@@ -1,0 +1,98 @@
+Debug ---
+0
+1
+2
+3
+	index 232 : 8
+4
+	index 74 : 8
+	index 102 : 8
+5
+6
+7
+	index 89 : 8
+8
+	index 214 : 8
+Debug ---
+0
+1
+2
+3
+	index 232 : 8
+4
+	index 74 : 8
+	index 102 : 8
+5
+6
+7
+	index 89 : 8
+8
+	index 214 : 8
+Debug ---
+0
+1
+2
+3
+4
+	index 74 : 8
+	index 102 : 8
+5
+6
+7
+	index 89 : 8
+8
+	index 214 : 8
+Debug ---
+0
+1
+2
+3
+4
+5
+6
+7
+	index 89 : 8
+8
+	index 214 : 8
+Debug ---
+0
+1
+2
+3
+4
+5
+6
+7
+	index 89 : 8
+8
+	index 214 : 8
+Debug ---
+0
+1
+2
+3
+4
+5
+6
+7
+	index 89 : 8
+8
+	index 214 : 8
+Debug ---
+0
+1
+2
+3
+4
+5
+6
+7
+	index 0 : 8
+8
+	index 214 : 8
+~~~ Output ~~~
+pattern found at index 4
+~~~ Output ~~~
+pattern found at index 15
+~~~ Output ~~~
+pattern found at index 22
