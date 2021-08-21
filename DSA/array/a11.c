@@ -14,7 +14,7 @@ Input: {0, 1, 2, 3, 4, 5, 6, 7, 10}, n = 9, m = 11
 Output: 8
 */
 
-#include <Stdio.h>
+#include <stdio.h>
 
 void cal(int ar[], int n, int m){
     int i,j;

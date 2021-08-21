@@ -35,6 +35,7 @@ void cal(int ar[], int n){
         }
     }
     printf("}\n");
+    /*instead of loop we could count by n+(n-1)+(n-2)+... + 1 stop when n becomes 0*/
 
     int t[count];
     count=0;
